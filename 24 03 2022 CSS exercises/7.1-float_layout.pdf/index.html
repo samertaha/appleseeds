@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .container {
+        width: 900px;
+        height: 80vh;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .header {
+        background-color: cornflowerblue;
+        width: 100%;
+        height: 120px;
+      }
+      .main {
+        background-color: palegreen;
+        width: 70%;
+        height: 500px;
+        float: right;
+        text-align: right;
+        padding-right: 20px;
+      }
+      .sidebar {
+        background-color: violet;
+        width: 30%;
+        height: 500px;
+        float: left;
+        text-align: left;
+        padding-left: 20px;
+      }
+      .clearfix::after {
+        content: '';
+        clear: both;
+        display: table;
+      }
+      .footer {
+        background-color: crimson;
+        width: 100%;
+        height: 120px;
+      }
+      h1,
+      h2 {
+        padding-top: 30px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Header</h1>
+      </div>
+      <div class="clearfix">
+        <div class="main">
+          <h2>Main content</h2>
+        </div>
+        <div class="sidebar">
+          <h2>Sidebar</h2>
+        </div>
+      </div>
+      <div class="footer">
+        <h2>Footer</h2>
+      </div>
+    </div>
+  </body>
+</html>

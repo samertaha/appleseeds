@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: darkgray;
+      }
+      a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      a:hover {
+        transition: 0.3s;
+      }
+      .large {
+        width: 120px;
+        height: 40px;
+        padding: 10px 20px;
+      }
+      .medium {
+        width: 100px;
+        height: 30px;
+        padding: 8px 15px;
+      }
+      .small {
+        width: 80px;
+        height: 20px;
+        padding: 6px 10px;
+      }
+      div.round a,
+      div.round-ghost a {
+        border-radius: 20px;
+      }
+      div.flat a:hover,
+      div.round:hover a:hover {
+        filter: brightness(0.5);
+      }
+      .greenbg:hover {
+        background-color: green;
+      }
+      .redbg:hover {
+        background-color: red;
+      }
+      .bluebg:hover {
+        background-color: blue;
+      }
+      .orangebg:hover {
+        background-color: orange;
+      }
+      .yellowbg:hover {
+        background-color: yellow;
+      }
+      .graybg:hover {
+        background-color: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Flat</h1>
+    <div class="flat">
+      <a href="#" style="background-color: green" class="large">Register</a>
+      <a href="#" style="background-color: red" class="medium">Clear</a>
+      <a href="#" style="background-color: blue" class="small">Submit</a>
+    </div>
+    <h1>Round</h1>
+    <div class="round">
+      <a href="#" style="background-color: orange" class="large">Register</a>
+      <a href="#" style="background-color: yellow" class="medium">Clear</a>
+      <a href="#" style="background-color: gray" class="small">Submit</a>
+    </div>
+    <h1>Flast Ghost</h1>
+    <div class="flat-ghost">
+      <a href="#" style="border: 2px green solid" class="large greenbg"
+        >Register</a
+      >
+      <a href="#" style="border: 2px red solid" class="medium redbg">Clear</a>
+      <a href="#" style="border: 2px blue solid" class="small bluebg">Submit</a>
+    </div>
+    <h1>Round Ghost</h1>
+    <div class="round-ghost">
+      <a href="#" style="border: 2px orange solid" class="large orangebg"
+        >Register</a
+      >
+      <a href="#" style="border: 2px yellow solid" class="medium yellowbg"
+        >Clear</a
+      >
+      <a href="#" style="border: 2px gray solid" class="small graybg">Submit</a>
+    </div>
+  </body>
+</html>

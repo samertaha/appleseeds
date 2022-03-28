@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>How to change font size depending on width of container?</title>
+
+    <style>
+      h1 {
+        color: green;
+      }
+
+      @media screen and (min-width: 601px) {
+        h1 {
+          font-size: 80px;
+        }
+
+        p {
+          font-size: 40px;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        h1 {
+          font-size: 40px;
+        }
+
+        p {
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Geeks for Geeks</h1>
+
+    <p>
+      Set the <em>font-size</em> of "h1" to "40px" and <em>paragraph</em> to
+      "20px", when the window's width is "600px" wide or less and when it is
+      "601px" or wider, set the <em>font-size</em> to "80px" and
+      <em>paragraph</em> to "40px". Resize the browser window to see the effect.
+    </p>
+  </body>
+</html>

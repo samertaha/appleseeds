@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrapper {
+        border: 2px solid #000;
+        overflow: hidden;
+      }
+
+      .wrapper div {
+        padding: 10px;
+      }
+      .floated-div {
+        background-color: gray;
+        float: left;
+        border: 2px dashed #ccc;
+        max-width: 400px;
+      }
+
+      @media screen and (max-width: 401px) {
+        .floated-div {
+          float: none;
+          margin: 5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="floated-div">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam a
+        saepe architecto asperiores? Nisi, explicabo. Ex officia accusantium
+        molestiae facilis debitis veritatis ipsa. Blanditiis omnis perferendis
+        dignissimos reiciendis at. Quia!
+      </div>
+      <div class="floated-div">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non recusandae
+        amet dolor quidem optio itaque velit placeat ipsam possimus. Praesentium
+        debitis, dolor voluptate enim eius ducimus quidem ipsum commodi numquam.
+      </div>
+      <div class="floated-div">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non recusandae
+        amet dolor quidem optio itaque velit placeat ipsam possimus. Praesentium
+        debitis, dolor voluptate enim eius ducimus quidem ipsum commodi numquam.
+      </div>
+      <div class="floated-div">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non recusandae
+        amet dolor quidem optio itaque velit placeat ipsam possimus. Praesentium
+        debitis, dolor voluptate enim eius ducimus quidem ipsum commodi numquam.
+      </div>
+    </div>
+  </body>
+</html>

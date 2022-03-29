@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      a {
+        display: inline;
+        position: relative;
+        transition: 0.3s;
+      }
+
+      a:hover {
+        color: #c00;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      a:hover:after {
+        background: yellow;
+        border-radius: 0.5em;
+        bottom: 1.35em;
+        left: 1em;
+        color: brown;
+        content: attr(data-tooltip);
+        display: block;
+        padding: 0.3em 1em;
+        position: absolute;
+        text-shadow: 0 1px 0 #000;
+        white-space: nowrap;
+        z-index: 98;
+        transition: 0.3s;
+      }
+
+      a:hover:before {
+        border: solid;
+        border-color: yellow transparent;
+        border-width: 0.4em 0.4em 0 0.4em;
+        bottom: 1em;
+        left: 2em;
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: 99;
+        transition: 0.3s;
+      }
+
+      /* this part styles only a paragraph  */
+
+      p {
+        color: #333;
+        font: normal 0.875em 'Lucida Grande', Arial, sans-serif;
+        margin: 1em auto;
+        width: 75%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In
+      condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla
+      fringilla, orci ac euismod semper, magna diam porttitor mauris, quis
+      sollicitudin sapien justo in libero.
+    </p>
+    <p>
+      Vestibulum mollis mauris
+      <a href="#" data-tooltip="this is a badass tooltip">pellentesque</a> enim.
+      euismod magna ac lorem rutrum elementum. Donec viverra auctor lobortis.
+      Est a nulla placerat
+      <a href="#" data-tooltip="this is another badass tooltip">dignissim</a>.
+      Morbi a enim in magna semper bibendum. Etiam scelerisque, nunc ac egestas
+      consequat, odio nibh euismod nulla, eget auctor orci nibh vel nisi.
+      Aliquam erat volutpat. Mauris.
+    </p>
+  </body>
+</html>

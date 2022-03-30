@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: yellow;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+      }
+      header {
+        margin-top: 20px;
+      }
+      ul {
+        list-style: none;
+      }
+      li {
+        display: inline-block;
+      }
+      li a {
+        text-decoration: none;
+        color: black;
+        font-size: 1.3rem;
+        display: block;
+        padding: 10px;
+        transition: all 2s ease-in-out;
+      }
+      li a:before {
+        content: '';
+        display: block;
+        border-top: 3px solid black;
+        transform: scale(0);
+        transform-origin: left;
+        transition: all 0.5s;
+      }
+      li a:hover:before {
+        transform: scale(1);
+      }
+
+      li a:after {
+        content: '';
+        display: block;
+        border-top: 3px solid black;
+        transform: scale(0);
+        transform-origin: right;
+        transition: all 0.5s;
+      }
+      li a:hover:after {
+        transform: scale(1);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <ul>
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">service</a>
+        </li>
+        <li>
+          <a href="#">Portfolio</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+      </ul>
+    </header>
+  </body>
+</html>

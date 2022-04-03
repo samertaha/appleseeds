@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: #fff;
+        height: 100vh;
+      }
+      .flexcontainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-gap: 5px;
+      }
+      .item {
+        padding: 3rem;
+        border-radius: 10px;
+      }
+      .red {
+        background: red;
+        grid-column: 1 / span 4;
+      }
+      .blue {
+        background: blue;
+        grid-column: 1 / span 2;
+        grid-row: 2 / span 2;
+      }
+      .green {
+        background: green;
+        grid-column: 3 / span 2;
+      }
+      .magenta {
+        background: magenta;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flexcontainer">
+      <div class="grid">
+        <div class="item red"></div>
+        <div class="item blue"></div>
+        <div class="item green"></div>
+        <div class="item magenta"></div>
+        <div class="item magenta"></div>
+      </div>
+    </div>
+  </body>
+</html>

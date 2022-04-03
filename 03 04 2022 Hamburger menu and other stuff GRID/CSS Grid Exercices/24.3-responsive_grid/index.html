@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: #fff;
+        height: 100vh;
+      }
+      .flexcontainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+      }
+      .grid {
+        /* flex: none; */
+        display: grid;
+        grid-template-areas:
+          'red'
+          'blue'
+          'green'
+          'magenta'
+          'yellow';
+        grid-gap: 5px;
+      }
+      .item {
+        padding: 3rem;
+        border-radius: 10px;
+      }
+      .red {
+        grid-area: red;
+        background: red;
+      }
+      .blue {
+        grid-area: blue;
+        background: blue;
+      }
+      .green {
+        grid-area: green;
+        background: green;
+      }
+      .magenta {
+        grid-area: magenta;
+        background: magenta;
+      }
+      .yellow {
+        grid-area: yellow;
+        background: yellow;
+      }
+
+      @media (min-width: 768px) {
+        .grid {
+          display: grid;
+          grid-template-areas:
+            'red red red red'
+            'blue green green green'
+            'magenta magenta magenta magenta'
+            'yellow yellow yellow yellow';
+          grid-gap: 5px;
+        }
+      }
+      @media (min-width: 992px) {
+        .grid {
+          display: grid;
+          grid-template-areas:
+            'red red red red'
+            'blue green green magenta'
+            'yellow yellow yellow yellow';
+          grid-gap: 5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flexcontainer">
+      <div class="grid">
+        <div class="item red">Header</div>
+        <div class="item blue">Sidebar</div>
+        <div class="item green">
+          content More content than we had before so this <br />
+          column is now quit tall
+        </div>
+        <div class="item magenta">Sidebar 2</div>
+        <div class="item yellow">Footer</div>
+      </div>
+    </div>
+  </body>
+</html>

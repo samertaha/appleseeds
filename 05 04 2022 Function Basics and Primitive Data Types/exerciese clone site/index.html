@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      display: flex;
+      justify-content: flex-start;
+      height: 100%;
+      background: #8484ff;
+    }
+    header a {
+      text-decoration: none;
+      font-size: 20px;
+      color: #fff;
+      display: inline-block;
+      padding: 20px 30px;
+      border-radius: 5px;
+    }
+    header a:hover {
+      background-color: #3e3eb3;
+    }
+    H1 {
+      font-weight: 700;
+      font-size: 70px;
+      text-align: center;
+      align-items: center;
+      color: #8484ff;
+      margin: 5rem auto;
+      border-bottom: #8484ff 2px solid;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100%;
+      width: 1200px;
+      margin: 0 auto;
+      margin-bottom: 5rem;
+    }
+    main address {
+      font-size: 24px;
+      line-height: 40px;
+      text-align: left;
+      align-self: flex-start;
+    }
+    main p {
+      background: #cacafd;
+      height: 100%;
+      line-height: 40px;
+      font-size: 24px;
+      padding: 3rem 2rem;
+      border-radius: 10px;
+      width: 100%;
+    }
+    .gallery {
+      margin-top: 3rem;
+      width: 80%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: auto;
+    }
+    .card {
+      width: 300px;
+      height: 300px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: black;
+      /* border-image: initial; */
+    }
+  </style>
+
+  <body>
+    <header>
+      <a href="#">Login</a>
+      <a href="#">Home</a>
+      <a href="#">About Me</a>
+    </header>
+    <h1>Welcome Home</h1>
+    <main>
+      <address>Put Your Name Here</address>
+      <p>
+        Hi there my name is Toam <br />
+        I am a Web Developer 22 yeas old <br />and love animals
+      </p>
+      <p style="margin-top: 3rem">
+        Lorem ipsum dolor sit amet consectetur <br />
+        adipisicing elit. Itaque vitae maiores<br />
+        quibusdam est ipsam! Et repudiandae<br />
+        dignissimos minus distinctio tempore<br />
+        qui cum quod recusandae exercitationem<br />
+        aut dolorem, repellat esse molestias<br />
+        ipsa odit aperiam quidem doloribus ut<br />
+        consectetur. Asperiores, odit blanditiis!<br />
+      </p>
+    </main>
+    <div class="gallery">
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+    </div>
+  </body>
+</html>

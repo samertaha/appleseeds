@@ -12,3 +12,9 @@ country.describe = function () {
   );
 };
 country.describe();
+
+country.checkIsland = function () {
+  this.isIsland = this.neighbours.length == 0 ? true : false;
+};
+country.checkIsland();
+console.log(country.isIsland);

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <style>
+      :root {
+        --bold-txt-color: rgb(61, 68, 73);
+        --gray-txt-color: rgb(127, 136, 143);
+      }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #fff;
+        color: #f56a6a;
+      }
+      header {
+      }
+
+      .bar {
+        width: 25px;
+        height: 3px;
+        background-color: #f56a6a;
+        margin: 6px 0px;
+      }
+      .burger {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        margin: 10px;
+      }
+      .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 95%;
+        height: 100%;
+        margin: 0 auto;
+      }
+      .container div:first-child h3 {
+        color: var(--gray-txt-color);
+        font-size: 19px;
+      }
+      .container div:first-child h3 span {
+        color: var(--bold-txt-color);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="burger">
+      <div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    <div class="container">
+      <div>
+        <h3><span>Editorial</span> by HTML5 UP</h3>
+      </div>
+      <div class="header">
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-facebook-f"></i>
+        <i class="fa-brands fa-snapchat"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-solid fa-m"></i>
+      </div>
+    </div>
+  </body>
+</html>

@@ -12,9 +12,9 @@
 
 const steps = (N) => {
   for (let i = 1; i <= N; i++) {
-    console.log('#'.repeat(i));
+    console.log('‘' + '#'.repeat(i) + ' ‘');
   }
 };
-// steps(2);
-// steps(5);
-steps(10);
+//steps(2);
+steps(5);
+// steps(10);

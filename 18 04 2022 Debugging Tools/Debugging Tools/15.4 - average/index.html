@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function calcAverage(arr) {
+        var sum = 0;
+        for (var i = 0; i < arr.length; i++) {
+          sum += arr[i];
+        }
+        return sum / arr.length;
+      }
+      const average = calcAverage([85, 90, 92]);
+    </script>
+  </body>
+</html>
+
+<!-- 1)on line 18 sum is undefined and it should star as 0 also sum/arr.length should
+be returned..
+     2) i used devtools step in and breakpoint in the function below
+     3)look 1
+     4)fixed
+    -->

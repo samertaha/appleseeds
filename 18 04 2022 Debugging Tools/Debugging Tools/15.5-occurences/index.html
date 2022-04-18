@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function countOccurrences(str, char) {
+        let counter = 0;
+        for (let i = 0; i < str.length; i++) {
+          if (str.charAt(i) === char) {
+            counter += 1;
+          }
+        }
+        return counter;
+      }
+      countOccurrences('ini mini miny moe', 'n');
+    </script>
+  </body>
+</html>
+<!-- 1) on line 15
+2) used devtools breakpoint on first line in the function and stepped in each for loop the counter didnt changed...
+3)the bug was that counter is not incrementing defined wrongly counter + 1 instead of counter += 1;
+4)fixed -->

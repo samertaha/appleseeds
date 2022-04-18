@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Block 1
+      function funcA() {
+        console.log(a);
+        console.log(foo());
+        var a = 1;
+        function foo() {
+          return 2;
+        }
+      }
+      funcA();
+      console.log(
+        '-------------------------------------------------------------'
+      );
+      // undefined on line 13 because a was hoisted
+      //will print 2 because all function foo declaration is hoisted
+
+      //   Block 2
+      var fullName = 'John Doe';
+      var obj = {
+        fullName: 'Colin Ihrig',
+        prop: {
+          fullName: 'Aurelio De Rosa',
+          getFullName: function () {
+            return this.fullName;
+          },
+        },
+      };
+      //       console.log(obj.prop.getFullName()); // will print Aurelio De Rosa
+      //       var test = obj.prop.getFullName;
+      //       console.log(test()); // will print John Doe because test was hoisted to the global scope
+      //       The code prints Aurelio De Rosa and John Doe. The reason is that the context of a function, what is referred with the this keyword, in JavaScript depends on how a function is invoked, not how it’s defined.
+
+      // In the first console.log() call, getFullname() is invoked as a function of the obj.prop object. So, the context refers to the latter and the function returns the fullname property of this object. On the contrary, when getFullname() is assigned to the test variable, the context refers to the global object (window). This happens because test is implicitly set as a property of the global object. For this reason, the function returns the value of a property called fullname of window, which in this case is the one the code set in the first line of the snippet.
+      console.log(
+        '-------------------------------------------------------------'
+      );
+
+      //block 3
+      function funcB() {
+        let a = (b = 0);
+        a++;
+        return a;
+      }
+      funcB();
+      console.log(typeof a);
+      console.log(typeof b);
+      // typeof a should return 'undefined' so the first console.log is 'undefined' .
+      // However, the second console.log logs 'number' since b is a global variable.
+      // Don’t let the let keyword fool us, b is still a global variable since it has no keyword before it.
+      // b = 0 is the same as window.b = 0 .
+      // To avoid this tricky situation, use strict mode by adding 'use strict' to the top of out code. Then we’ll get the error ‘b is not defined’.
+      // Modules always use strict mode so this is not an issue with them.
+
+      console.log(
+        '-------------------------------------------------------------'
+      );
+      //block 4
+      function funcC() {
+        console.log('1');
+      }
+      funcC();
+      function funcC() {
+        console.log('2');
+      }
+      funcC();
+      // will print 2 twice because both functions declarations is hoisted with same name so the last one with console.log(2) will be called always
+      console.log(
+        '-------------------------------------------------------------'
+      );
+      //block 5
+      function funcD1() {
+        d = 1;
+      }
+      funcD1();
+      console.log(d); // will print 1 because d is assigned to global window because didnt used keyword var or let
+      function funcD2() {
+        var e = 1;
+      }
+      funcD2();
+      //console.log(e); // will cause error e not defined
+      console.log(
+        '-------------------------------------------------------------'
+      );
+      //block 6
+      console.log('block 6');
+      function funcE() {
+        console.log('Value of f in local scope: ', f);
+      }
+      console.log('Value of f in global scope: ', f); // 10 will print undefied f is hoisted
+      var f = 1;
+      funcE(); // will print 1 because function declaration is hoisted
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function getSum(arr1, arr2) {
+        let sum = 0;
+        for (let i = 0; i < arr1.length; i++) {
+          sum += arr1[i];
+        }
+        for (let j = 0; j < arr2.length; j++) {
+          sum += arr2[j];
+        }
+        return sum;
+      }
+      console.log(getSum([1, 2, 3], [5, 66, 23]));
+    </script>
+  </body>
+</html>
+<!-- 1) line containing the problem is 13/14 when function tries to reference arr1[i]  -->
+<!-- 2) i used chrome devtools sources debusgging step in/step out  -->
+<!-- 3) te bug happen when the function getSum tried to loop over the array argument which was passed wrongly on the function main call on line 20. -->
+<!-- 4) bug was fixed on line 20 also changed sum from const to let because it couldnt change on the loops line 14. -->

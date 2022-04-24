@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script>
+      class Webpage {
+        constructor(title) {
+          document.title = title;
+        }
+        set(markup) {
+          document.body.innerHTML = markup;
+        }
+        append(markup) {
+          document.body.innerHTML += markup;
+        }
+        markup(tag, content, ending = true) {
+          if (ending) {
+            return '<' + tag + '>' + content + '</' + tag + '>';
+          } else {
+            return '<' + tag + '/>';
+          }
+        }
+        code(code) {
+          this.append(this.markup('code', code));
+        }
+        image(url) {
+          this.append('<img src="' + url + '" />');
+        }
+        font(name) {
+          document.body.style.fontFamily = name;
+        }
+        header(level, content) {
+          this.append(this.markup('h' + level, content));
+        }
+        stylesheet(url) {
+          this.append(
+            '<link rel="stylesheet" type="text/css" href="' + url + '"/>'
+          );
+        }
+        script(url, isAsync = false) {
+          if (isAsync) {
+            this.append('<script src="' + url + '"/>');
+          } else {
+            this.append('<script src="' + url + '"/>');
+          }
+        }
+      }
+
+      var w = new Webpage('New Page');
+      w.font('Helvetica, Arial, sans-serif');
+      w.set('<h1>Hello World</h1>');
+      w.append(w.markup('hr', null, 0));
+      w.append(
+        w.markup(
+          'p',
+          'This whole webpage was generated in JavaScript. Pretty <i>cool</i>, <b>right?</b>'
+        )
+      );
+      w.image('https://google.com/favicon.ico');
+      w.code(' samertaha.com');
+      w.header(3, 'Webpages are awesome when dynamically generated.');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .passInput {
+        text-align: center;
+        width: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="#" role="form" method="post" id="passForm">
+      <input
+        type="text"
+        class="passInput"
+        name="pass[]"
+        maxlength="1"
+        autocomplete="off"
+        required
+        pattern="\d{1}"
+        autofocus
+      />
+      <input
+        type="text"
+        class="passInput"
+        name="pass[]"
+        maxlength="1"
+        autocomplete="off"
+        required
+        pattern="\d{1}"
+      />
+      <input
+        type="text"
+        class="passInput"
+        name="pass[]"
+        maxlength="1"
+        autocomplete="off"
+        required
+        pattern="\d{1}"
+      />
+      <input
+        type="text"
+        class="passInput"
+        name="pass[]"
+        maxlength="1"
+        autocomplete="off"
+        required
+        pattern="\d{1}"
+      />
+      <input
+        type="text"
+        class="passInput"
+        name="pass[]"
+        maxlength="1"
+        autocomplete="off"
+        required
+        pattern="\d{1}"
+      />
+      <input
+        type="text"
+        class="passInput"
+        name="pass[]"
+        maxlength="1"
+        autocomplete="off"
+        required
+        pattern="\d{1}"
+      />
+      <button type="submit" class="btn btn-lg btn-primary">SUBMIT</button>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      const $inp = $('.passInput');
+      console.log($inp);
+      $inp.on({
+        paste(ev) {
+          // Handle Pasting
+
+          const clip = ev.originalEvent.clipboardData.getData('text').trim();
+          // Allow numbers only
+          if (!/\d{6}/.test(clip)) return ev.preventDefault(); // Invalid. Exit here
+          // Split string to Array or characters
+          const s = [...clip];
+          // Populate inputs. Focus last input.
+          $inp
+            .val((i) => s[i])
+            .eq(5)
+            .focus();
+        },
+        input(ev) {
+          // Handle typing
+
+          const i = $inp.index(this);
+          if (this.value) $inp.eq(i + 1).focus();
+        },
+        keydown(ev) {
+          // Handle Deleting
+
+          const i = $inp.index(this);
+          if (!this.value && ev.key === 'Backspace' && i)
+            $inp.eq(i - 1).focus();
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .passInput {
+        text-align: center;
+        width: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" maxlength="1" />
+    <input type="text" maxlength="1" />
+    <input type="text" maxlength="1" />
+    <input type="text" maxlength="1" />
+    <input type="text" maxlength="1" />
+    <input type="text" maxlength="1" />
+
+    <script>
+      // Listen to paste on the document
+      document.addEventListener('paste', function (e) {
+        // if the target is a text input
+        if (e.target.type === 'text') {
+          var data = e.clipboardData.getData('Text');
+          // split clipboard text into single characters
+          data = data.split('');
+          // find all other text inputs
+          [].forEach.call(
+            document.querySelectorAll('input[type=text]'),
+            (node, index) => {
+              // And set input value to the relative character
+              node.value = data[index];
+            }
+          );
+        }
+      });
+    </script>
+  </body>
+</html>

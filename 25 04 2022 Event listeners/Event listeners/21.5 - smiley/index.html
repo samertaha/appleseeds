@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <style>
+    body {
+      font-size: 10px;
+    }
+    span {
+      font-size: 50px;
+    }
+  </style>
+  <body>
+    <span>&#128515;</span>
+    <p>How many smileys do you want to see?</p>
+    <input type="text" id="number" />
+    <button type="button" id="btn" onclick="printSmilyes()">submit</button>
+    <script>
+      const printSmilyes = () => {
+        const number = document.querySelector('#number');
+        document.querySelectorAll('span').forEach((el) => el.remove());
+        for (let i = 1; i <= Number(number.value); i++) {
+          const smiley = document.createElement('span');
+          smiley.innerHTML = '&#128515;';
+          document.body.appendChild(smiley);
+        }
+      };
+    </script>
+  </body>
+</html>

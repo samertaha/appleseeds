@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .message {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Why are you interested in this position?</p>
+
+    <textarea id="text" name="w3review" rows="4" cols="50"> </textarea>
+    <button type="button" id="btn" onclick="validate()">Click here!</button>
+    <p class="message">1</p>
+
+    <script>
+      let message = document.querySelector('.message');
+      let text = document.querySelector('#text');
+      const validate = () => {
+        if (text.value.length < 10)
+          message.textContent =
+            'minimum 100 characters your message length must be.';
+        else message.textContent = 'Thank you';
+      };
+    </script>
+  </body>
+</html>

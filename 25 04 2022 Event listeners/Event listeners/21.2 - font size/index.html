@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        font-size: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatibus
+      voluptatem iusto quasi porro laudantium accusantium ipsum rem dignissimos
+      dolorem obcaecati repellat fugit in eum ex ad ipsam nihil, atque
+      voluptates!
+    </p>
+
+    <button type="button" id="bigger" onClick="inc()">+</button>
+    <button type="button" id="smaller" onClick="dec()">-</button>
+    <script>
+      let size = 6;
+
+      const inc = () => {
+        if (size < 100) size++;
+        document.querySelector('p').style.fontSize = size + 'px';
+      };
+      const dec = () => {
+        if (size > 6) size--;
+        document.querySelector('p').style.fontSize = size + 'px';
+      };
+    </script>
+  </body>
+</html>

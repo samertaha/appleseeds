@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="age" />
+    <button type="button" onclick="changeText()">check age</button>
+    <script>
+      function changeText(e) {
+        const age = document.getElementById('age');
+        if (Number(age.value) > 18) {
+          age.value = 'you can drink bear';
+        } else {
+          age.value = `you're too young`;
+        }
+      }
+    </script>
+  </body>
+</html>

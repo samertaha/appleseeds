@@ -5,12 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{display: flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:column;
+        font-weight: bold;
+        font-size:1.5rem;
+        }
+        #theLetter{
+            width:1rem; height:1rem;
+            color: black;
+            border: 2px solid black;
+            display:flex; 
+            justify-content:center;
+            align-items:center;
+            padding:5px;
+        }
+    </style>
 </head>
 <body>
-    <h1>The Psychic Game</h1>
-  <p>Guess what letter I'm thinking of! Press any letter to begin.</p>
-  <p>The right answer is between A to Z.</p>
-  <div id="currentSituation"></div>
+    <h1>Welcome To Guess My Letter</h1>
+    <div  id="theLetter">?</div> 
+    <h3 id="currentSituation">Guess a letter</h3>    
+    <h3 id="guessedKeys">Keys guessed</h3>   
+    <p id="usedLetters"></p> 
+  
   <script>
     const possibleAnswers = ['a','b','c','d','e','f','g','h','i',
       'j','k','l','m','n','o','p', 'q','r',
@@ -18,7 +38,7 @@
 
     let wins = 0;
     let losses = 0;
-    let chances = 9;
+    let chances = possibleAnswers.length-1;
     let guesses = [];
     
     function getNewAnswer(){
@@ -28,7 +48,11 @@
 
     let answer = getNewAnswer();
 
+    const currentSituation = document.getElementById('currentSituation');
+    const usedLetters = document.getElementById('usedLetters');
+
     document.addEventListener("keydown", processGuess);
+    
 
     function processGuess(event){
       const userGuess = event.key.toLowerCase();
@@ -38,20 +62,21 @@ if (/^[a-z]+$/.test(userGuess) && guesses.indexOf(userGuess) == -1) {
         if (userGuess === answer) {
           // the guess is correct
           wins++;
-          chances = 9;
+          chances = possibleAnswers.length;
           guesses.length = 0; 
           alert(`That's right! The letter is ${answer}`);
           answer = getNewAnswer();
         } else if (chances === 1) {
           // all chances are used
           losses++;
-          chances = 9;
+          chances = possibleAnswers.length;
           guesses.length = 0;
           alert(`Whoops you lose! The correct letter is ${answer}`);
           answer = getNewAnswer();
         } else if (userGuess !== answer) {
-          // the guess is wrong
-          alert(`Not ${userGuess}! Try again`);
+          currentSituation.style.color='red';
+          currentSituation.textContent = `Nop wrong letter`;
+          usedLetters.textContent = guesses.join(", ");
           chances--;
         }
 
@@ -60,7 +85,7 @@ if (/^[a-z]+$/.test(userGuess) && guesses.indexOf(userGuess) == -1) {
           <p>wins: ${wins} </p> 
           <p>losses: ${losses} </p> 
           <p>chances left: ${chances} </p>`;
-        document.querySelector("#currentSituation").innerHTML = html;
+        // document.querySelector("#currentSituation").innerHTML = html;
       }
     }
   </script>

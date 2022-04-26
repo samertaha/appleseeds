@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+      div.image{
+          width:400px;
+      }
+  </style>
+  <body>
+      <input type="checkbox" onclick="show_img()" id="check" value="whatever" name="whatever">whatever</input>
+      <div id="img"></div>
+      
+
+    <script>
+function show_img(){
+ if (document.getElementById("check").checked){
+ document.getElementById("img").innerHTML="<img src='./image.jpg' alt='somthing important' style='width:100%;'>";
+ } else{
+     document.getElementById("img").innerHTML='';
+ }
+}
+    </script>
+  </body>
+</html>

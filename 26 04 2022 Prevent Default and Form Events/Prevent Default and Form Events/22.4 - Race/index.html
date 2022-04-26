@@ -19,12 +19,12 @@
     <table class="racer-table">
       <tr id="player1-race">
         <td class="active"></td>
-        <!--  <td></td> -->
         <td></td>
         <td></td>
         <td></td>
         <td></td>
-        <!-- <td></td> -->
+        <td></td>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>
@@ -47,5 +47,50 @@
       </tr>
     </table>
     <hr />
+    <h1 id="winner"></h1>
+    <script>
+      const player1race = document.querySelectorAll('#player1-race td');
+      const player2race = document.querySelectorAll('#player2-race td');
+
+      document.addEventListener('keyup', startRace);
+
+      function startRace(event) {
+        function restartGame() {
+          player1race[player1race.length - 1].classList.remove('active');
+          player1race[0].classList.add('active');
+          player2race[player1race.length - 1].classList.remove('active');
+          player2race[0].classList.add('active');
+          restart.remove();
+          winer.remove();
+        }
+        //console.log('clicked');
+        player1race.forEach((td, i) => {
+          setTimeout(() => {
+            i !== 0 ? player1race[i - 1].classList.remove('active') : '';
+            td.classList.add('active');
+          }, 1000);
+        });
+        player2race.forEach((td, i) => {
+          setTimeout(() => {
+            i !== 0 ? player2race[i - 1].classList.remove('active') : '';
+            td.classList.add('active');
+          }, 1500);
+        });
+
+        const winer = document.createElement('h1');
+        winer.textContent = 'And the winner is the red car !';
+
+        setTimeout(() => {
+          document.body.appendChild(winer);
+        }, 2000);
+
+        const restart = document.createElement('button');
+        restart.textContent = 'Restart game?';
+        restart.addEventListener('click', restartGame);
+        setTimeout(() => {
+          document.body.appendChild(restart);
+        }, 3000);
+      }
+    </script>
   </body>
 </html>

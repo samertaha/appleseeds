@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px green solid;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="form">
+      <label for="firstname"> First Name* </label>
+      <input type="text" name="firstname" id="firstname" />
+
+      <label for="age"> Age* </label>
+      <input type="text" name="age" id="age" />
+
+      <label for="email"> Email* </label>
+      <input type="email" name="email" id="email" />
+
+      <button id="submit">Submit</button>
+      <p id="message"></p>
+    </form>
+    <script>
+      const submit = document.getElementById('submit');
+
+      submit.addEventListener('click', confirmForm);
+
+      function confirmForm(e) {
+        e.preventDefault();
+
+        const firstNameField = document.getElementById('firstname');
+        const ageField = document.getElementById('age');
+        const email = document.getElementById('email');
+        const p = document.getElementById('message');
+
+        let text = `${firstNameField.value} ${ageField.value} ${email.value}`;
+        if (confirm(text) == true) {
+          p.textContent = 'Congratulations you successfully sent this form!';
+        } else {
+          p.textContent = '';
+          text = '';
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>

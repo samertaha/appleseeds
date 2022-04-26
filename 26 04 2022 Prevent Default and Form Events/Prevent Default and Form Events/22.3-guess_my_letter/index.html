@@ -22,6 +22,12 @@
             align-items:center;
             padding:5px;
         }
+        #yes{
+            display:none;
+            padding: 5px 10px;
+            border: 2px solid black;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -30,15 +36,16 @@
     <h3 id="currentSituation">Guess a letter</h3>    
     <h3 id="guessedKeys">Keys guessed</h3>   
     <p id="usedLetters"></p> 
+    <button type="button" id="yes" onclick="runAgain()">Yes</button>  
   
   <script>
-    const possibleAnswers = ['a','b','c','d','e','f','g','h','i',
-      'j','k','l','m','n','o','p', 'q','r',
-      's','t','u','v','w','x','y','z'];
-
+    // const possibleAnswers = ['a','b','c','d','e','f','g','h','i',
+    //   'j','k','l','m','n','o','p', 'q','r',
+    //   's','t','u','v','w','x','y','z'];
+ const possibleAnswers = ['a','b','c'];
     let wins = 0;
     let losses = 0;
-    let chances = possibleAnswers.length-1;
+    let chances = possibleAnswers.length;
     let guesses = [];
     
     function getNewAnswer(){
@@ -50,22 +57,32 @@
 
     const currentSituation = document.getElementById('currentSituation');
     const usedLetters = document.getElementById('usedLetters');
+    const theLetter = document.getElementById('theLetter');
+    const guessedKeys = document.getElementById('guessedKeys');
+    const yes = document.getElementById('yes');
 
-    document.addEventListener("keydown", processGuess);
+    document.addEventListener("keyup", processGuess);
     
 
     function processGuess(event){
       const userGuess = event.key.toLowerCase();
-if (/^[a-z]+$/.test(userGuess) && guesses.indexOf(userGuess) == -1) {
-        guesses.push(userGuess);
+console.log("im here");
+
+if (/^[a-z]+$/.test(userGuess)) {
 
         if (userGuess === answer) {
           // the guess is correct
           wins++;
           chances = possibleAnswers.length;
           guesses.length = 0; 
-          alert(`That's right! The letter is ${answer}`);
+           theLetter.textContent=`${answer}`;
+           currentSituation.style.color = 'green';
+           currentSituation.textContent = 'Right letter!'
+           guessedKeys.textContent = 'Would you like to play again?';
+           usedLetters.style.display = 'none';
+           yes.style.display = 'block';
           answer = getNewAnswer();
+          document.removeEventListener("keyup", processGuess);
         } else if (chances === 1) {
           // all chances are used
           losses++;
@@ -75,9 +92,19 @@ if (/^[a-z]+$/.test(userGuess) && guesses.indexOf(userGuess) == -1) {
           answer = getNewAnswer();
         } else if (userGuess !== answer) {
           currentSituation.style.color='red';
-          currentSituation.textContent = `Nop wrong letter`;
-          usedLetters.textContent = guesses.join(", ");
+          if (guesses.indexOf(userGuess) == -1){     
+                guesses.push(userGuess);
+                currentSituation.textContent = 'Nop wrong letter';
+          } else currentSituation.textContent = `${userGuess} has already been guessed`;
+         
+        
+          usedLetters.textContent = guesses.join(", ")
+        
           chances--;
+          setTimeout(()=>{
+              currentSituation.style.color='black';
+              currentSituation.textContent = `Guess a letter`;
+          },1000)
         }
 
         let html = `<p>Your previous choice(s): </p> 
@@ -86,7 +113,24 @@ if (/^[a-z]+$/.test(userGuess) && guesses.indexOf(userGuess) == -1) {
           <p>losses: ${losses} </p> 
           <p>chances left: ${chances} </p>`;
         // document.querySelector("#currentSituation").innerHTML = html;
+      } else{
+          currentSituation.style.color='red';
+          currentSituation.textContent = 'please enter a valid letter';
+           setTimeout(()=>{
+              currentSituation.style.color='black';
+              currentSituation.textContent = `Guess a letter`;
+          },1000)
       }
+    }
+
+    const runAgain = () =>{
+        currentSituation.textContent = 'Guess a letter';
+        theLetter.textContent = '?';
+        guessedKeys.textContent = 'Keys guessed';
+        usedLetters.textContent = '';
+        usedLetters.style.display = "block";
+        yes.style.display = 'none';
+        document.addEventListener("keyup", processGuess);
     }
   </script>
 </body>

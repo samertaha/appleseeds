@@ -1,0 +1,70 @@
+<!-- Instructions
+Answer the following questions:
+Question 1:
+In your own words what will this point to and why?(Note 
+this is the global scope)
+console.log(this);
+
+Question 2:
+a. In your own words what will this point to and why.
+
+**it will point according where it found if in arrow function will point to the enclosing function if in function declaration point to the parent object.
+
+b. How can you fix this code.
+const myObj = {
+  name: "Timmy",
+  greet: () => {
+    console.log(`Hello ${this.name}`);
+  },
+};
+myObj.greet();
+
+**change "greet: () =>" { to function declaration "greet: function(){.."
+
+Question 3:
+In your own words what will this point to and why?
+const myFuncDec = function () {
+  console.log(this);
+};
+
+** it will point to the global object in browser the global object is the window object.
+
+Question 4:
+In your own words what will this point to and why?
+const myFuncArrow = () => {
+  console.log(this);
+};
+myFuncArrow();
+
+** this will point lexacilly to the first parent function declaration or global object.
+
+Question 5:
+a. In your own words what will this point to and why.
+b. How can you fix this code.
+document.querySelector(".element").addEventListener(() => {
+  console.log(this);
+}); 
+
+** 
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="element">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum unde
+      itaque in quo possimus? Obcaecati dicta iste quae illum quisquam.
+    </div>
+    <script>
+      document.querySelector('.element').addEventListener(() => {
+        console.log(this);
+      });
+    </script>
+  </body>
+</html>

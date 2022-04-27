@@ -628,7 +628,7 @@ const carMarket = {
 //? @return {Object} - agency object
 
 carMarket.getAgencyByName = function (agencyName) {
-  return this.sellers.find((agency) => agency.agencyName == agencyName);
+  return this.sellers.find((agency) => agency.agencyName === agencyName);
 };
 
 console.log(
@@ -801,17 +801,17 @@ carMarket.setPropertyBrandToAllCars();
 console.log(carMarket.getAllCarToBuy());
 //todo Agency setters
 console.log('---------------------------------------');
-
+console.log('-------------------NEW CAR--------------------');
 //* setNewCarToAgency
 //? @param {string} - id of agency
 //? @param {object} - carObject
 //? @return {}
 
 carMarket.setNewCarToAgency = function (agencyId, carObject) {
-  let agency = this.sellers.find((agency) => agency.agencyId == agencyId);
-  let car = agency.cars.find((car) => car.brand == carObject.brand);
+  const agency = this.sellers.find((agency) => agency.agencyId === agencyId);
+  const brand = agency.cars.find((car) => car.brand === carObject.brand);
   carObject.ownerId = agency.agencyId;
-  if (car) car.models.push(carObject);
+  if (brand) brand.models.push(carObject);
   // if brand found push it to the models under the brand
   else agency.cars.push({ brand: carObject.brand, carObject }); // brand not found
 };

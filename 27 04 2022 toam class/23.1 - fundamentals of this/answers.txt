@@ -1,0 +1,3 @@
+Q1: this will point to the global object in browsers global object is the window.
+Q2. this will point to the window and will print undefined because there is no window.name because this=window.name
+Q3. 

@@ -10,10 +10,26 @@
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
         font-size: 1.2rem;
       }
+      .card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+      }
     </style>
   </head>
   <body>
     <input type="text" id="searchInput" />
+
+    <div class="card" id="card"></div>
+    <h3 id="title"></h3>
+    <h3 id="Genre"></h3>
+    <h3 id="Year"></h3>
+    <h3 id="Plot"></h3>
+    <h3 id="Director"></h3>
+    <h3 id="Actors"></h3>
+
     <script>
       function getMovie(searchTerm) {
         return fetch(`http://www.omdbapi.com/?t=${searchTerm}&apikey=440c8830`)
@@ -28,11 +44,41 @@
           });
       }
 
-      searchInput = document.getElementById('searchInput');
+      const searchInput = document.getElementById('searchInput');
+
       searchInput.addEventListener('keydown', (event) => {
         if (event.keyCode == 13) {
-          getMovie(event.target.value).then((val) => {
-            console.log(val);
+          getMovie(event.target.value).then((movie) => {
+            console.log(movie);
+
+            let card = document.getElementById('card');
+            let title = document.getElementById('title');
+            let Genre = document.getElementById('Genre');
+            let Year = document.getElementById('Year');
+            let Plot = document.getElementById('Plot');
+            let Director = document.getElementById('Director');
+            let Actors = document.getElementById('Actors');
+            let Ratings = document.getElementById('Ratings');
+
+            card.setAttribute(
+              'style',
+              'background-image: url(' +
+                movie.Poster +
+                ');background-repeat: no-repeat;background-size: 388px 388px'
+            );
+            title.textContent = 'Title: ' + movie.Title;
+            Genre.textContent = 'Genre: ' + movie.Genre;
+            Year.textContent = 'Year: ' + movie.Year;
+            Plot.textContent = 'Plot: ' + movie.Plot;
+            Director.textContent = 'Director: ' + movie.Director;
+            Actors.textContent = 'Actors: ' + movie.Actors;
+            movie.Ratings.forEach((rating) => {
+              const h3 = document.createElement('h3');
+              document.body.appendChild(h3);
+              h3.innerHTML =
+                'source: ' + rating.Source + ' value: ' + rating.Value;
+              console.log(rating);
+            });
           });
         }
       });

@@ -4,6 +4,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Layout from './pages/Layout';
 import LifeCycleMethods from './pages/lifeCycleMethods';
+import BoxAnimations from './pages/BoxAnimations';
+import Changingbox from './pages/Changingbox';
+import Spinner from './pages/Spinner';
 
 function App() {
   return (
@@ -15,6 +18,9 @@ function App() {
           <Routes>
             <Route path='/' element={<Layout />}>
               <Route path='LifeCycleMethods' element={<LifeCycleMethods />} />
+              <Route path='BoxAnimations' element={<BoxAnimations />} />
+              <Route path='Changingbox' element={<Changingbox />} />
+              <Route path='Spinner' element={<Spinner />} />
             </Route>
           </Routes>
         </BrowserRouter>

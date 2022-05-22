@@ -21,12 +21,12 @@ function Cards({ data }) {
             <h3>{obj.name}</h3>
             <h3>{obj.birthday}</h3>
             meats:
-            {obj.favoriteFoods.meats.map((meat) => (
-              <h5>{meat}</h5>
+            {obj.favoriteFoods.meats.map((meat, index) => (
+              <h5 key={index}>{meat}</h5>
             ))}
             fishes:
-            {obj.favoriteFoods.fish.map((fish) => (
-              <h5>{fish}</h5>
+            {obj.favoriteFoods.fish.map((fish, index) => (
+              <h5 key={index}>{fish}</h5>
             ))}
           </div>
         );

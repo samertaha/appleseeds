@@ -9,10 +9,12 @@ class Avatars extends Component {
 
   fetchCors = async (url) => {
     try {
+      this.setState({ loading: true });
       const res = await fetch(
         `https://nameless-citadel-58066.herokuapp.com/${url}`
       );
       const data = await res.json();
+      this.setState({ loading: false });
       return data.results;
     } catch (e) {
       console.log(e);
@@ -23,7 +25,7 @@ class Avatars extends Component {
     const avatars = await this.fetchCors(
       'https://randomuser.me/api/?results=20&inc=name,picture'
     );
-    this.setState({ loading: true, avatars: avatars, searchResults: avatars });
+    this.setState({ avatars: avatars, searchResults: avatars });
     console.log(Array.isArray(this.state.avatars));
     console.log(this.state.avatars);
     console.log(this.state.avatars.map((person) => person));
@@ -35,7 +37,7 @@ class Avatars extends Component {
         .toLowerCase()
         .includes(value.toLowerCase())
     );
-    this.setState({ loading: true, searchResults: res });
+    this.setState({ searchResults: res });
   }
 
   render() {
@@ -47,7 +49,8 @@ class Avatars extends Component {
             onChange={(e) => this.searchAvatars(e.target.value)}
           />
         </div>
-        {
+        {this.state.loading && <h1 className='contain'>loading...</h1>}
+        {!this.state.loading && (
           <div className='contain'>
             {this.state.searchResults.map((person, index) => {
               return (
@@ -60,7 +63,7 @@ class Avatars extends Component {
               );
             })}
           </div>
-        }
+        )}
       </>
     );
   }

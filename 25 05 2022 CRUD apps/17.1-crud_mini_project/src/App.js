@@ -84,7 +84,7 @@ class App extends React.Component {
 
   pressDeleteBtn = async (id) => {
     try {
-      await axios.delete(API_URL + 'avatars/:' + id);
+      await axios.delete(API_URL + 'avatars/' + id);
       const newAvatars = this.state.avatars.filter(
         (Avatar) => Avatar.id !== id
       );

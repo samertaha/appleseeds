@@ -11,9 +11,20 @@ class App extends Component {
       { name: 'Jeffrey Delgado', isEditing: false },
     ],
   };
+
+  componentDidUpdate(prevProps, prevState) {
+    window.localStorage.setItem('users', JSON.stringify(this.state.users));
+  }
+  componentDidMount() {
+    const users = JSON.parse(window.localStorage.getItem('users'));
+    if (users && users.length > 0) {
+      this.setState({ users: users });
+    }
+  }
   // (newUser) is received from AddUser.js
   addUser = (newUser) => {
     let users = [...this.state.users, newUser];
+    //console.log(users);
     this.setState({
       users,
     });

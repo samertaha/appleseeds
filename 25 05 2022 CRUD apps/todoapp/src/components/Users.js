@@ -38,6 +38,7 @@ class Users extends Component {
       ) : (
         <tr key={index}>
           <td>{user.name}</td>
+          <td>{user.date}</td>
 
           <td>
             <button

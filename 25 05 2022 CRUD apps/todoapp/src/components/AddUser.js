@@ -4,11 +4,20 @@ class AddUser extends Component {
   state = {
     name: null,
     isEditing: false,
+    date: new Date().toLocaleString('en-US', {
+      month: 'long',
+      day: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+    }),
   };
   //call addUser (App.js)
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addUser(this.state);
+    this.setState((prevState) => {
+      return { ...prevState };
+    }, this.props.addUser(this.state));
+
     e.target.reset();
   };
   // update state

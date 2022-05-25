@@ -1,15 +1,14 @@
 import React from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { productData } from './data';
 
-export default function Product() {
-  const params = useParams();
+function Product() {
+  const { id } = useParams();
   const [product, setProduct] = React.useState(null);
   React.useEffect(() => {
-    const prod = productData.find((p) => p.id === params.id * 1);
-    console.log(params);
+    const prod = productData.find((p) => p.id === id * 1);
     setProduct(prod);
-  });
+  }, []);
 
   return (
     <div>
@@ -24,3 +23,5 @@ export default function Product() {
     </div>
   );
 }
+
+export default Product;

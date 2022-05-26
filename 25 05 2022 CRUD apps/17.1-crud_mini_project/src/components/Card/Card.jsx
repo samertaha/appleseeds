@@ -13,7 +13,7 @@ class App extends React.Component {
       <div key={id} className='Card'>
         <h5>{avatarName}</h5>
         <img src={imgUrl} alt={avatarName} />
-        <div style={{ display: 'flex' }}>
+        <div className='cardButton'>
           <button type='button' onClick={() => this.props.pressEditBtn(id)}>
             Edit
           </button>

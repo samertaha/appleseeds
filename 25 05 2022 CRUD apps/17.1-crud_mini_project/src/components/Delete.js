@@ -1,6 +1,6 @@
 import React from 'react';
 
-class EditForm extends React.Component {
+class Delete extends React.Component {
   state = {
     id: this.props.beeingEdited.id,
     name: '',
@@ -10,7 +10,7 @@ class EditForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.editAvatar(this.state);
+    this.props.deleteAvatar(this.state);
     e.target.reset();
   };
 
@@ -43,4 +43,4 @@ class EditForm extends React.Component {
   }
 }
 
-export default EditForm;
+export default Delete;

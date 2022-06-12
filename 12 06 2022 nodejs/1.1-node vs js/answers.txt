@@ -1,0 +1,7 @@
+1- Nodejs can run on the server side while client side js can only in the browser.
+2- NodeJs has access to the file system of the server while client side javascript doesnt has access to the client file system.
+3- NodeJs is used for secured operation like access to mogodb databases wich executed in the server where people cant see sensitive data while the client side javascript is not suitable for executing secured operations because it run in the people browsers.
+
+1- client side run in the client browser and can interact directly with the people visiting the website while Nodejs is a backend/server side code that is runned and controlled by the client side javascript.
+2- client side has access to the browser facilities of the users like localstorage and browser dom wile nodjs doesnt has direct access to those things.
+3-client side js can interact directly with the user while nodejs cant.

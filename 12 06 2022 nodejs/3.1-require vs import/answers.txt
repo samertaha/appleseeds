@@ -1,0 +1,26 @@
+You can't selectively load only the pieces you need with require but with import, you can selectively load only the pieces you need, which can save memory.
+
+Loading is synchronous(step by step) for require on the other hand import can be asynchronous(without waiting for previous import) so it can perform a little better than require
+
+
+-------------------------------------------------------------------------------
+
+Node has experimental support for ES modules. To enable them we need to make some changes to the package.json file. Before following the steps make sure that Node is installed. Below are the steps to achieve the same.
+
+In the package.json file add “type” : “module”. Adding this enables ES6 modules.
+The package.json file should look like this:
+
+//package.json
+{
+  "name": "index",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

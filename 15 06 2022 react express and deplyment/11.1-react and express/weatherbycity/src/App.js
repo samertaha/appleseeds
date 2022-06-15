@@ -8,7 +8,7 @@ function App() {
   const [results, setResults] = useState('');
 
   function getResults() {
-    axios.get(`/${city}`).then((res) => {
+    axios.get(`http://localhost:3300/${city}`).then((res) => {
       setResults(res.data.temp);
     });
   }

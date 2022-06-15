@@ -4,7 +4,7 @@ const axios = require('axios');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 3300;
+// const PORT = process.env.PORT || 3300;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
@@ -25,8 +25,8 @@ app.get('/:location', (req, res) => {
   }
 });
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-}
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static('weatherbycity/build'));
+// }
 
-app.listen(PORT, () => console.log('Example app listening on port 3300!'));
+app.listen(3300, () => console.log('Example app listening on port 3300!'));

@@ -1,0 +1,231 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+Loading personal and system profiles took 1279ms.
+ SAMER@DESKTOP-5S5BAC4  C:  react projects  appleseeds exercises  20 06 2022 mongo driver  16.1-blog 
+schema  main 
+❯ mongosh
+Current Mongosh Log ID: 62b03a9b014fa6ffc643d283
+Connecting to:          mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.5.0
+Using MongoDB:          5.0.9
+Using Mongosh:          1.5.0
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2022-06-19T12:22:00.325+03:00: Access control is not enabled for the database. Read and write access to 
+data and configuration is unrestricted
+------
+
+------
+   Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+   metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+   The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+   and anyone you share the URL with. MongoDB may use this information to make product
+   improvements and to suggest MongoDB products and deployment options to you.
+
+   To enable free monitoring, run the following command: db.enableFreeMonitoring()
+   To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+------
+
+Warning: Found ~/.mongorc.js, but not ~/.mongoshrc.js. ~/.mongorc.js will not be loaded.
+  You may want to copy or rename ~/.mongorc.js to ~/.mongoshrc.js.
+test> use blog
+switched to db blog
+blog> db.createCollection("MyCollection")
+{ ok: 1 }
+blog> db.createCollection("users")
+{ ok: 1 }
+blog> db.user.insertMany({name:"samer",posts:[],comments:[]},{name:"ameer",posts:[],conmments:[]},{name:"keter",posts:[],coments:[]})
+MongoInvalidArgumentError: Argument "docs" must be an array of documents
+blog> db.user.insertMany([{name:"samer",posts:[],comments:[]},{name:"ameer",posts:[],conmments:[]},{name:"keter",posts:[],coments:[]}])
+{
+  acknowledged: true,
+  insertedIds: {     
+    '0': ObjectId("62b03d835e7ff5c47856c6b1"),
+    '1': ObjectId("62b03d835e7ff5c47856c6b2"),
+    '2': ObjectId("62b03d835e7ff5c47856c6b3")
+  }
+}
+blog> show dbs
+admin             40.00 KiB
+blog              24.00 KiB
+config            72.00 KiB
+findMyRestaurant  48.00 KiB
+local             40.00 KiB
+blog> db.users.find({})
+
+blog> db.users.find({}).pretty()
+
+blog> db.users.find()
+
+blog> db.user.find()
+[
+  {
+    _id: ObjectId("62b03d835e7ff5c47856c6b1"),
+    name: 'samer',
+    posts: [],
+    comments: []
+  },
+  {
+    _id: ObjectId("62b03d835e7ff5c47856c6b2"),
+    name: 'ameer',
+    posts: [],
+    conmments: []
+  },
+  {
+    _id: ObjectId("62b03d835e7ff5c47856c6b3"),
+    name: 'keter',
+    posts: [],
+    coments: []
+  }
+]
+blog> db.users.insertMany([{name:"samer",posts:[],comments:[]},{name:"ameer",posts:[],conmments:[]},{name:"keter",posts:[],coments:[]}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("62b03eaf5e7ff5c47856c6b4"),
+    '1': ObjectId("62b03eaf5e7ff5c47856c6b5"),
+    '2': ObjectId("62b03eaf5e7ff5c47856c6b6")
+  }
+}
+blog> db.users.find()
+[
+  {
+    _id: ObjectId("62b03eaf5e7ff5c47856c6b4"),
+    name: 'samer',
+    posts: [],
+    comments: []
+  },
+  {
+    _id: ObjectId("62b03eaf5e7ff5c47856c6b5"),
+    name: 'ameer',
+    posts: [],
+    conmments: []
+  },
+  {
+    _id: ObjectId("62b03eaf5e7ff5c47856c6b6"),
+    name: 'keter',
+    posts: [],
+    coments: []
+  }
+]
+blog> db.createCollection("posts")
+{ ok: 1 }
+blog> db.posts.insertMany([{user:_ObjectId("62b03eaf5e7ff5c47856c6b6"),post:"Hello world post"},{user:_ObjectId("62b03eaf5e7ff5c47856c6b5"),post:"Hello world 2"}])
+ReferenceError: _ObjectId is not defined
+blog> db.posts.insertMany([{user:_ObjectId("62b03eaf5e7ff5c47856c6b6"),post:"Hello world post"},{user:_ObjectId("62b03eaf5e7ff5c47856c6b5"),post:"Hello world 2"}])
+ReferenceError: _ObjectId is not defined
+blog> db.posts.insertMany([{user:_ObjectID("62b03eaf5e7ff5c47856c6b6"),post:"Hello world post"},{user:_ObjectID("62b03eaf5e7ff5c47856c6b5"),post:"Hello world 2"}])
+ReferenceError: _ObjectID is not defined
+blog> db.posts.insertMany([{users_id:_ObjectID("62b03eaf5e7ff5c47856c6b6"),post:"Hello world post"},{users_id:_ObjectID("62b03eaf5e7ff5c47856c6b5"),post:"Hello world 2"}])
+ReferenceError: _ObjectID is not defined
+blog> db.posts.insertMany([{users_id:_ObjectID("62b03eaf5e7ff5c47856c6b6"),post:"Hello world post"},{users_id:_ObjectID("62b03eaf5e7ff5c47856c6b5"),post:"Hello world 2"}])
+ReferenceError: _ObjectID is not defined
+blog> db.users.find()
+[
+  {
+    _id: ObjectId("62b03eaf5e7ff5c47856c6b4"),
+    name: 'samer',
+    posts: [],
+    comments: []
+  },
+  {
+    _id: ObjectId("62b03eaf5e7ff5c47856c6b5"),
+    name: 'ameer',
+    posts: [],
+    conmments: []
+  },
+  {
+    _id: ObjectId("62b03eaf5e7ff5c47856c6b6"),
+    name: 'keter',
+    posts: [],
+    coments: []
+  }
+]
+blog> db.posts.insertMany([{users_id:_ObjectID("62b03eaf5e7ff5c47856c6b6"),post:"Hello world post"},{users_id:_ObjectID("62b03eaf5e7ff5c47856c6b5"),post:"Hello world 2"}])
+ReferenceError: _ObjectID is not defined
+blog> db.posts.insertMany([{users_id:_ObjectID("62b03eaf5e7ff5c47856c6b6"),post:"Hello world post"},{users_id:_ObjectID("62b03eaf5e7ff5c47856c6b5"),post:"Hello world 2"}])
+ReferenceError: _ObjectID is not defined
+blog> db.posts.insertMany([{users_id:[_ObjectID("62b03eaf5e7ff5c47856c6b6")],post:"Hello world post"},{users_id:[_ObjectID("62b03eaf5e7ff5c47856c6b5")],post:"Hello world 2"}])
+ReferenceError: _ObjectID is not defined
+blog> db.posts.insertMany([{users_id:[ObjectID("62b03eaf5e7ff5c47856c6b6")],post:"Hello world post"},{users_id:[ObjectID("62b03eaf5e7ff5c47856c6b5")],post:"Hello world 2"}])
+ReferenceError: ObjectID is not defined
+blog> db.posts.insertMany([{users_id:ObjectID("62b03eaf5e7ff5c47856c6b6"),post:"Hello world post"},{users_id:ObjectID("62b03eaf5e7ff5c47856c6b5"),post:"Hello world 2"}])
+ReferenceError: ObjectID is not defined
+blog> db.posts.insertMany([{users_id:ObjectId("62b03eaf5e7ff5c47856c6b6"),post:"Hello world post"},{users_id:ObjectId("62b03eaf5e7ff5c47856c6b5"),post:"Hello world 2"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("62b04fe55e7ff5c47856c6b7"),
+    '1': ObjectId("62b04fe55e7ff5c47856c6b8")
+  }
+}
+blog> db.posts.find()
+[
+  {
+    _id: ObjectId("62b04fe55e7ff5c47856c6b7"),
+    users_id: ObjectId("62b03eaf5e7ff5c47856c6b6"),
+    post: 'Hello world post'
+  },
+  {
+    _id: ObjectId("62b04fe55e7ff5c47856c6b8"),
+    users_id: ObjectId("62b03eaf5e7ff5c47856c6b5"),
+    post: 'Hello world 2'
+  }
+]
+blog> db.createCollection("comments")
+{ ok: 1 }
+blog> db.comments.insertMany({post_id:ObjectId("62b04fe55e7ff5c47856c6b8"),users_id:ObjectId("62b03eaf5e7ff5c47856c6b4")),comment:"HI there"},{post_id:ObjectId("62b04fe55e7ff5c47856c6b8"),users_id:ObjectId("62b03eaf5e7ff5c47856c6b6")),comment:"HI there"})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:114)
+
+> 1 | db.comments.insertMany({post_id:ObjectId("62b04fe55e7ff5c47856c6b8"),users_id:ObjectId("62b03eaf5e7ff5c47856c6b4")),comment:"HI there"},{post_id:ObjectId("62b04fe55e7ff5c47856c6b8"),users_id:ObjectId("62b03eaf5e7ff5c47856c6b6")),comment:"HI there"})
+    |
+             ^
+  2 |
+
+blog> db.comments.insertMany({posts_id:ObjectId("62b04fe55e7ff5c47856c6b8"),users_id:ObjectId("62b03eaf5e7ff5c47856c6b4"),comment:"HI there"},{posts_id:ObjectId("62b04fe55e7ff5c47856c6b8"),users_id:ObjectId("62b03eaf5e7ff5c47856c6b6"),comment:"HI there"})
+MongoInvalidArgumentError: Argument "docs" must be an array of documents
+blog> db.comments.insertMany([{posts_id:ObjectId("62b04fe55e7ff5c47856c6b8"),users_id:ObjectId("62b03eaf5e7ff5c47856c6b4"),comment:"HI there"},{posts_id:ObjectId("62b04fe55e7ff5c47856c6b8"),users_id:ObjectId("62b03eaf5e7ff5c47856c6b6"),comment:"HI there"}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId("62b053225e7ff5c47856c6b9"),
+    '1': ObjectId("62b053225e7ff5c47856c6ba")
+  }
+}
+blog> db.comments.find()
+[
+  {
+    _id: ObjectId("62b053225e7ff5c47856c6b9"),
+    posts_id: ObjectId("62b04fe55e7ff5c47856c6b8"),
+    users_id: ObjectId("62b03eaf5e7ff5c47856c6b4"),
+    comment: 'HI there'
+  },
+  {
+    _id: ObjectId("62b053225e7ff5c47856c6ba"),
+    posts_id: ObjectId("62b04fe55e7ff5c47856c6b8"),
+    users_id: ObjectId("62b03eaf5e7ff5c47856c6b6"),
+    comment: 'HI there'
+  }
+]
+blog> db.comments.find()
+[  
+  {
+    _id: ObjectId("62b053225e7ff5c47856c6b9"),
+    posts_id: ObjectId("62b04fe55e7ff5c47856c6b8"),
+    users_id: ObjectId("62b03eaf5e7ff5c47856c6b4"),
+    comment: 'HI there'
+  },
+  {
+    _id: ObjectId("62b053225e7ff5c47856c6ba"),
+    posts_id: ObjectId("62b04fe55e7ff5c47856c6b8"),
+    users_id: ObjectId("62b03eaf5e7ff5c47856c6b6"),
+    comment: 'HI there'
+  }
+]
+blog>

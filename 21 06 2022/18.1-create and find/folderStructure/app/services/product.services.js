@@ -33,3 +33,13 @@ export const getMinMaxProductsService = async (min, max) => {
   //products.instanceMethod();
   return products;
 };
+export const activeDiscountService = async (id, isActive, discount) => {
+  Product.findByIdAndUpdate(
+    id,
+    { isActive, details: { discount } },
+    (err, product) => {
+      if (err) return err;
+      return { success: true };
+    }
+  );
+};

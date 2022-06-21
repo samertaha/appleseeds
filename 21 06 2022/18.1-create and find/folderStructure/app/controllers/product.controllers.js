@@ -3,6 +3,7 @@ import { getProductsService } from '../services/product.services.js';
 import { getProductService } from '../services/product.services.js';
 import { getActiveProductsService } from '../services/product.services.js';
 import { getMinMaxProductsService } from '../services/product.services.js';
+import { activeDiscountService } from '../services/product.services.js';
 
 export const createProduct = async (req, res) => {
   try {
@@ -46,6 +47,16 @@ export const getMinMaxProducts = async (req, res) => {
   try {
     const products = await getMinMaxProductsService(min, max); //Mongoose
     res.send(products);
+  } catch (error) {
+    res.send(error.message);
+  }
+};
+export const activeDiscountProduct = async (req, res) => {
+  const { id, isActive, discount } = req.body;
+  try {
+    const result = await activeDiscountService(id, isActive, discount); //Mongoose
+    console.log(result);
+    res.send({ result });
   } catch (error) {
     res.send(error.message);
   }
